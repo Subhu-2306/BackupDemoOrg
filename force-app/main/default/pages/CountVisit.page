@@ -1,0 +1,3 @@
+<apex:page standardController="Account" extensions="CountVisitTwo_CX" action="{!inIt}" >
+    Visited Count
+</apex:page>

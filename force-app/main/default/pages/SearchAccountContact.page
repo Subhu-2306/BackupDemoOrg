@@ -1,0 +1,22 @@
+<apex:page controller="SearchAccountContactController">
+<apex:form >
+<apex:pageBlock title="Search Result">
+<apex:inputText value="{!searchKey}" label="Input"/>
+<apex:pageBlockButtons location="top">
+<apex:commandButton value="Search" action="{!serachAccount}"></apex:commandButton>
+<apex:commandButton id="deleteit" value="Delete Selected" action="{!deleteSelected}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockTable value="{!sub}" var="a">
+    <apex:column >
+    	<apex:inputCheckbox value="{!a.check_box}" />
+    </apex:column>
+    <apex:column value="{!a.acc.name}"/>
+    <apex:column value="{!a.acc.id}"/>
+</apex:pageBlockTable>
+<apex:pageBlockTable value="{!varCon}" var="c">
+    <apex:column value="{!c.name}"/>
+    <apex:column value="{!c.id}"/>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

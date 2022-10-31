@@ -1,0 +1,45 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="AssignmentCls" >
+<aura:attribute name="Customer" type="List" />
+    <lightning:card class="card">
+        
+        <div onkeyup="{! c.handleKeyUp }">
+            <lightning:input
+                             aura:id="enter-search"
+                             name="Search Customer"
+                             label="Search Customer"
+                             placeholder="Search Customer"
+                             type="search"
+                             />
+        </div>
+         <div style="Width:200px;" onkeyup="{! c.handleKey }">
+            <lightning:input
+                             aura:id="enter-search"
+                             name="Select Food Item"
+                             label="Select Food Item"
+                             placeholder="Select Food Item"
+                             type="search"
+                             />
+        </div>
+        <div style="position:absolute;Left:250px;Top:80px; Width:100px;" >
+            <lightning:input 
+                             name="Quantity"
+                             label="Quantity"
+                             placeholder="Quantity"
+                             />
+        </div> 
+        <br/><br/>
+        <h4>Shipping Address:</h4>
+        <lightning:input label="Street" type="String" aura:id="Street"/>
+        <lightning:input label="City" type="String" aura:id="City"/>
+        <lightning:input label="State" type="String" aura:id="State"/>
+        <lightning:input label="Country" type="String" aura:id="Country"/>
+        <lightning:input label="PIN Code" type="Integer" aura:id="PINCode"/>
+        <br/><br/><br/>
+        <lightning:button variant="Neutral" label="Clear All" onclick="{!c.clearAll}"/>
+        <lightning:button variant="brand" label="Place Order" onclick="{!c.PlaceOrder}"/>
+        <lightning:button variant="destructive" label="Cancel" onclick="{!c.Cancel}"/>
+        
+       
+        
+    </lightning:card>
+</aura:component>

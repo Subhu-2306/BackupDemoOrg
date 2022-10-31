@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:method name="submitDR" action="{!c.openEventPopup}">        
+        <aura:attribute name="showModalFade" type="string"/>
+        <aura:attribute name="darkModalBackdrop" type="String"/>
+    </aura:method>
+    <section role="dialog" class="slds-modal" aura:id="modalFade">
+        <div class="slds-modal__container">
+            <lightning:recordEditForm objectApiName="Place_An_Order__c" recordId="{!v.recordId}">
+                <lightning:messages />
+                <lightning:recordEditForm objectApiName="Place_An_Order__c" >
+                    <lightning:inputField aura:id="Field" fieldName="Customer__c" onchange="{!c.handleChange}" required="False"/>
+                    <lightning:inputField aura:id="Field" fieldName="Food_Item__c" onchange="{!c.handleChange}" required="False"/>
+                    <lightning:inputField aura:id="field" fieldName="Quantity__c" />
+                    <h1>Shipping Address</h1>
+                    <lightning:inputField aura:id="field" fieldName="Street__c" />
+                    <lightning:inputField aura:id="field" fieldName="City__c" />
+                    <lightning:inputField aura:id="field" fieldName="State__c" />
+                    <lightning:inputField aura:id="field" fieldName="Country__c" />
+                    <lightning:inputField aura:id="field" fieldName="PIN_CODE__c" />
+                </lightning:recordEditForm>
+                <div class="slds-m-top_medium">
+                    <lightning:button variant="brand-outline" label="Clear All" onclick="{!c.reset}" />
+                    <lightning:button variant="destructive-text" label="Cancel" title="Destructive action" onclick="{!c.closeEventPopup}"/>
+                    <lightning:button variant="success" type="submit" label="Place Order" onclick="{!c.handleSuccess}"/>
+                    
+                </div>
+            </lightning:recordEditForm>
+        </div>
+    </section>
+    <div class="slds-backdrop" aura:id="modalBackdrop"></div>
+</aura:component>

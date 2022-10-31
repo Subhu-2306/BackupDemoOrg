@@ -1,0 +1,23 @@
+<apex:page standardController="Opportunity" extensions="OppPriceBookSelector">
+    <apex:form >
+        
+      <apex:pageblock title="Opportunity Detail Page">
+        <apex:pageBlockSection title="Opportunity Information">
+            <apex:inputField value="{!Opportunity.name}"/>  
+            <apex:inputField value="{!Opportunity.Type}"/>
+            <apex:inputField value="{!Opportunity.Amount}"/> 
+            <apex:inputField value="{!Opportunity.Stagename}"/> 
+            <apex:inputField value="{!Opportunity.CloseDate}"/>
+            <apex:inputField value="{!Opportunity.Pricing_Type__c}"/>
+            <apex:outputText value="{!SelectedBook}" label="Price Book"/> 
+                  
+        </apex:pageBlockSection> 
+          
+         <apex:pageBlockButtons >
+                 <apex:commandButton action="{!save}" value="Submit" />
+                 <apex:commandButton action="{!Cancel}" value="Cancel" />
+         </apex:pageBlockButtons>
+      </apex:pageblock>
+    
+    </apex:form>
+</apex:page>

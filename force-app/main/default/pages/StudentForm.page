@@ -1,0 +1,30 @@
+<apex:page standardcontroller="Student__c" extensions="Translation" language="{!selectedLang}" >
+<apex:form id="a" title="Student Registration Form">
+
+        <apex:selectList value="{!selectedLang}" size="1">
+            <apex:selectoptions value="{!listOfLang}" />
+            <apex:actionsupport event="onchange" action="{!clear}"/>
+        </apex:selectlist>
+   
+        <apex:pageblock id="b" title="Student Information">
+            <apex:pageblocksection id="c" title="Student Registration Form">
+                <apex:inputfield value="{!Student__c.Full_Name__c}"/>
+                <apex:inputfield value="{!Student__c.Roll__c}"/>
+                <apex:inputfield value="{!Student__c.Gender__c}"/>
+                <apex:inputfield value="{!Student__c.Course_Applying_for__c}"/>
+                <apex:inputfield value="{!Student__c.S_S_C__c}"/>
+                <apex:inputfield value="{!Student__c.H_S_C__c}"/>
+                <apex:inputfield value="{!Student__c.Country__c}"/>
+                <apex:inputfield value="{!Student__c.State__c}"/>
+                <apex:inputfield value="{!Student__c.City__c}"/>
+            </apex:pageblocksection>
+            
+             <apex:pageBlockButtons >
+                 <apex:commandButton action="{!save}" value="Submit" />
+                 <apex:commandButton action="{!Cancel}" value="Cancel" />
+             </apex:pageBlockButtons>
+
+        </apex:pageblock>
+   
+</apex:form>
+</apex:page>

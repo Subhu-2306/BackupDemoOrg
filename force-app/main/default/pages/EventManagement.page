@@ -1,0 +1,24 @@
+<apex:page controller="VFGuestController" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Event Registration">
+            <apex:pageBlockSection title="Enter Details">
+                <apex:input value="{!startDate}" label="Start Date" type="date"/>
+                <apex:input value="{!endDate}" label="End Date" type="date"/>
+                <apex:commandButton value="Search Event" action="{!SearchEvent}" reRender="ev" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:selectList value="{!selectedEvent}" id="ev" label="Select Event">
+                    <apex:selectOptions value="{!eventList}"/>
+                </apex:selectList>
+                <apex:commandButton value="Search Guest" action="{!searchGuest}" reRender="ev1"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:selectList value="{!selectedGuest}" label="Select Guest" id="ev1">
+                    <apex:selectOptions value="{!guestList}"/>
+                </apex:selectList>
+                <apex:inputText value="{!guestName}" label="Guest Name"/>
+                <apex:commandButton value="Save Guest" action="{!SaveGuest}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page controller="UserController">
+  
+  <apex:form >
+      <apex:selectList size="1">
+          <apex:selectOptions value="{!UserList}"></apex:selectOptions>
+      </apex:selectList>
+      <br/>
+       <apex:selectList size="1">
+          <apex:selectOptions value="{!CityList}"></apex:selectOptions>
+      </apex:selectList>
+  </apex:form>
+  
+</apex:page>

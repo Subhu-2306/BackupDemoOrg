@@ -1,0 +1,20 @@
+<apex:page controller="TestFunctionality">
+    <apex:form >
+        <apex:inputText value="{!searchString}" label="Input"/>
+        
+        <apex:commandButton value="Search" action="{!Search}"/>
+        <apex:commandButton id="deleteit" value="Delete Selected" action="{!deleteSelected}"/>
+        
+        <apex:pageBlock title="Search Global">
+            <apex:pageBlockSection title="Search Accounts">
+                <apex:pageBlockTable value="{!sub}" var="a">
+                    <apex:column >
+                        <apex:inputCheckbox value="{!a.check_box}" />
+                    </apex:column>
+                    <apex:column value="{!a.acc.id}"/>
+                    <apex:column value="{!a.acc.name}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

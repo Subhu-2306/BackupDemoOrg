@@ -1,0 +1,49 @@
+<apex:page standardController="Account" Extensions="Act">
+<apex:form >
+    <apex:pageBlock title="Account Edit">
+         <apex:pageBlockSection title="Account Information">
+            <apex:outputField value="{!Account.OwnerId}"/>
+            <apex:inputField value="{!Account.Name}"/>
+            <apex:inputField value="{!Account.Phone}"/>
+            <apex:inputField value="{!Account.rating}"/>
+         </apex:pageBlockSection>
+         
+         <apex:pageBlockSection title="Description Information">
+            <apex:inputField value="{!Account.Description}"/>
+         </apex:pageBlockSection>
+         
+         <apex:pageBlockButtons >
+             <apex:commandButton action="{! save }" value="Save" />
+             <apex:commandButton action="{! Cancel }" value="Cancel " />
+         </apex:pageBlockButtons>
+    </apex:pageBlock>
+    
+    <apex:pageMessages />
+    <apex:pageBlock title="Upload a Attachment">
+
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton action="{!save}" value="Save"/>
+      </apex:pageBlockButtons>
+
+      <apex:pageBlockSection title="Attachment">
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File Name" for="fileName"/>
+          <apex:inputText value="{!attachment.name}" id="fileName"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File" for="file"/>
+          <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Description" for="description"/>
+          <apex:inputTextarea value="{!attachment.description}" id="description"/>
+        </apex:pageBlockSectionItem>
+
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

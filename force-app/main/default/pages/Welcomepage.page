@@ -1,0 +1,44 @@
+<apex:page controller="TrialLoginPage">
+    
+    <style type="text/css">
+        font { 
+            font-weight: bold; 
+            background-color: #eec; 
+            font-size:25px;
+        }
+        td.pbTitle>h2 {
+            font-size: 2rem !important;
+        }
+        
+    </style>
+    <br/>
+
+         <apex:image url="{!$Resource.EternusImage}" />
+    <apex:form >
+        <apex:pageMessages />
+        <br/>
+        
+        <apex:pageBlock title="TimeSheet Login">
+            <B>Username :&nbsp;&nbsp;&nbsp;</B>
+            <apex:inputText id="UserName" value="{!userName}"/>
+            
+            <br/>
+            <br/>
+            
+            <B>Password :&nbsp;&nbsp;&nbsp;</B>
+            <apex:inputsecret required="true" value="{!password}"/>
+            
+            <br/>
+            <br/>
+            
+            <apex:commandButton value="Login Here" styleClass="buttonStyle" style="width:100px;" action="{!logintoSalesforce}"/>
+            <apex:commandLink title="Reset" value="Reset" action="{!ResetPassword}"/>
+            
+            <br/>
+            <br/>
+            
+            <apex:commandLink value="Forgot Password" action="{!ForgotPassword}"/>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

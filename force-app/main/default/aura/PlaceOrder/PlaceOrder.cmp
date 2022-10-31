@@ -1,0 +1,39 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="PlaceOrderClass">
+    
+    <!--aura:attribute name="options" type="List" access="PRIVATE"/>
+    <aura:attribute name="selectedValue" type="String" access="PRIVATE"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="row slds-m-right_xx-large slds-p-bottom_xx-large">         
+        <lightning:select name="colorId" label="Select Food item " aura:id="colorId" value="{!v.selectedValue}">
+            <aura:iteration items="{!v.options}" var="option">
+                <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+            </aura:iteration>
+        </lightning:select>
+    </div-->
+    
+   
+    <div class="row slds-m-right_xx-large"> 
+        <lightning:input aura:id="fi" name="Fooditem" label="Food Item : " />
+        <lightning:input aura:id="quant" name="Quantity" label="Quantity : " />
+        <lightning:input aura:id="cname" name="customername" label="Customer Name :" />
+        <br>  </br>
+        <h2 class="header">Shipping Address : </h2>
+    	<br>  </br>
+        <lightning:input aura:id="ostreet" name="street"  label="Street :" />
+        <lightning:input aura:id="ocity" name="city" label="City : " />
+        <lightning:input aura:id="ostate" name="state" label="State : " />
+        <lightning:input aura:id="ocountry" name="country" label="Country : " />
+        <lightning:input aura:id="opincode" name="pincode" label="Pin Code : " />
+        
+        
+        <div class="slds-align_absolute-center " style="height:5rem">
+            <lightning:buttonGroup>
+                <lightning:button label="Clear All" title="Clear All" onclick="{! c.clear }"/>
+                <lightning:button variant="Brand" label="Place Order" title="Place Order" onclick="{! c.handleClick }" />
+                <lightning:button variant="destructive-text" label="Cancel" title="Cancel" onclick="{! c.handleClick }" />
+            </lightning:buttonGroup>
+        </div>       
+    </div>
+</aura:component>

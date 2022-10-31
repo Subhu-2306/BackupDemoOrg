@@ -1,0 +1,76 @@
+<apex:page standardController="Time_Entry__c" extensions="TrialTimeTracker">
+    
+    <apex:form >
+        <apex:messages />   
+        <apex:pageBlock title="Hello ,  {!name} "/>
+        <apex:commandButton value="Logout" action="{!logout}" styleClass="btn btn-danger btn-md" style="float:right; font-size: 17px;font-weight: normal; border-radius:0;"/>
+        <p>
+            <h3>Please log Time for each day as per your working..</h3> 
+        </p>
+        <apex:pageBlock title="Log Time">
+            <apex:pageBlockSection title="Enter details to log time">
+                
+                <apex:pageBlockTable value="{!ListTimeEntryRecords}" var="TimeEntryRecord" >
+                    <apex:column headerValue="Date">
+                        <apex:inputField value="{!TimeEntryRecord.Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Category">
+                        <apex:inputField value="{!TimeEntryRecord.Category__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Details">
+                        <apex:inputField value="{!TimeEntryRecord.Details__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Unit Type">
+                        <apex:inputField value="{!TimeEntryRecord.Unit_Type__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Units">
+                        <apex:inputField value="{!TimeEntryRecord.Units__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Scale">
+                        <apex:inputField value="{!TimeEntryRecord.Scale__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Product Version">
+                        <apex:inputField value="{!TimeEntryRecord.Product_Version__c}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >              
+                <apex:commandButton value="Add Time Entry Row" action="{!logTime}"/>
+                <apex:commandButton value="Save Time Entries" action="{!saveRecords}"/>
+                <apex:commandButton value="TimeSheets" action="{!timeSheets}"/>
+            </apex:pageBlockButtons> 
+            
+            <apex:pageBlockSection >
+        <apex:pageBlockTable value="{!ListTimeEntryRecords}" var="TimeEntryRecord" >
+                    <apex:column headerValue="Date">
+                        <apex:outputField value="{!TimeEntryRecord.Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Category">
+                        <apex:outputField value="{!TimeEntryRecord.Category__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Details">
+                        <apex:outputField value="{!TimeEntryRecord.Details__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Unit Type">
+                        <apex:outputField value="{!TimeEntryRecord.Unit_Type__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Units">
+                        <apex:outputField value="{!TimeEntryRecord.Units__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Scale">
+                        <apex:outputField value="{!TimeEntryRecord.Scale__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Product Version">
+                        <apex:outputField value="{!TimeEntryRecord.Product_Version__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Display">
+                        <apex:outputField value="{!TimeEntryRecord.Display__c}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+        </apex:pageBlockSection>          
+        </apex:pageBlock>
+        
+       
+    </apex:form>
+</apex:page>

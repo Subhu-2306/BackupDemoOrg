@@ -1,0 +1,39 @@
+<apex:page controller="CreateContact"> 
+<apex:form > <script> function validateEmail()
+                                { 
+                                    var Email=document.getElementById('Email'); 
+                                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                    
+                                    if(Email==Null || Email=="")
+                                    { 
+                                        alert("Email Required"); 
+                                        return false;
+                                    } if else(!Pattern.matches('^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!
+                                    
+                                 }
+                                    {+-]+@[gmail.-]+\\.[com]{2,4}$', Email))
+                                        { 
+                                         alert("Invalid mail"); return False; 
+                                        
+                                        } else
+                                        { 
+                                        return true; 
+                                        } 
+                                    } 
+             </script> 
+   <apex:pageBlock title="Create new Contact Record"> <apex:pageBlockSection collapsible="false" columns="2"> <apex:inputField value="{!ContactRecord.FirstName}"/>
+             <apex:inputField value="{!ContactRecord.LastName}"/> 
+             <apex:inputField value="{!ContactRecord.Email}" id="Email" required="True"/> 
+             <apex:inputField value="{!ContactRecord.OtherStreet}" required="True"/> 
+             <apex:inputField value="{!ContactRecord.OtherCity}" required="True"/> 
+             <apex:inputField value="{!ContactRecord.OtherPostalCode}" required="True"/> 
+             <apex:inputField value="{!ContactRecord.OtherCountry}" required="True"/> 
+             <apex:inputField value="{!ContactRecord.OtherState}" required="True"/> 
+             <input type="hidden" id="UserId" name="UserId" value="0055j0000047qPfAAI"/> 
+             </apex:pageBlockSection> 
+             <apex:pageBlockButtons > 
+                 <apex:commandButton action="{!SaveRecord}" value="Save"/>
+            </apex:pageBlockButtons> 
+            </apex:pageBlock> 
+    </apex:form> 
+</apex:page>

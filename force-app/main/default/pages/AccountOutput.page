@@ -1,0 +1,26 @@
+<apex:page standardController="Account" extensions="act1">
+<apex:form >
+    <apex:pageBlock title="Account Detailed Page">
+         
+         <apex:pageBlock title="Account Information">
+           <apex:pageBlockTable value="{!Account}" var="Account">
+              <apex:column value="{!Account.Name}"/>
+              <apex:column value="{!Account.OwnerId}"/>
+              <apex:column value="{!Account.Phone}"/>
+              <apex:column value="{!Account.rating}"/>
+            <apex:column value="{!Account.Description}"/>
+           </apex:pageBlockTable>
+           
+         <apex:pageBlockButtons >
+             <apex:commandButton action="{!Save}" value="Edit" />
+             <apex:commandButton action="{!Cancel}" value="Cancel " />
+         </apex:pageBlockButtons>
+         
+        </apex:pageBlock>
+     
+    </apex:pageBlock>
+</apex:form>
+ <apex:pageBlock >
+<apex:relatedList subject="{!account}"  list="CombinedAttachments" />
+ </apex:pageBlock>
+</apex:page>

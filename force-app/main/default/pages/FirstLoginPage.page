@@ -1,0 +1,15 @@
+<apex:page controller="Samplesite1" showHeader="false" sidebar="false" standardStylesheets="true">
+    <apex:messages />
+    <apex:form >
+        <p><b>Gavs Technologies</b><br /></p>
+    <apex:panelGrid columns="2" style="margin-top:1em;">
+        <p><b>UserName</b><br />
+        <apex:inputText required="true" id="username" value="{!username}"/>
+        </p>
+        <p><b>Password</b><br />
+        <apex:inputSecret id="password" value="{!password}"/>
+        </p>
+         <apex:commandButton action="{!registerUser}" value="Submit" id="submit"/>
+    </apex:panelGrid>
+    </apex:form>
+</apex:page>

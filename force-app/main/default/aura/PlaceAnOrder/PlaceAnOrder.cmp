@@ -1,0 +1,64 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="AssignmentCls" >
+    <c:PlaceOrderFront aura:id="eventPopId" />
+    <aura:attribute name="reorderId" type="String" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="deliveredBy" type="String"  />
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="orderId" type="Integer"/>
+    <aura:attribute name="listContact" type="Contact[]"/>
+    <aura:attribute name="columnsToDisplay" type="List"/>
+    <aura:attribute name="searchKeyword" type="String"/>
+    <aura:attribute name="orderData" type="Contact[]" />
+    <aura:attribute name="myOrderColumns" type="List" />
+    <aura:attribute name="reOrderData" type="Contact[]" />
+    <aura:attribute name="myreOrderColumns" type="List" />
+    
+    <aura:attribute name="orderDetails" type="List" />
+    
+    <aura:attribute name="response" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card iconName="standard:contact" title="Customer List">
+        <!-- Search Box -->
+        <lightning:layout>
+            <lightning:layoutItem size="3" padding="around-small">
+                <lightning:input aura:id="searchField"
+                                 label="Contact Name"
+                                 value="{!v.searchKeyword}"
+                                 placeholder="Select Customer"
+                                 onchange="{!c.searchContacts}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+        <!-- Contact List goes here -->        
+        <lightning:datatable data="{!v.listContact}"
+                             columns="{!v.columnsToDisplay}"
+                             keyField="Id"
+                             hideCheckboxColumn="true"
+                             onrowaction="{!c.handleRowAction}" />
+    </lightning:card>
+    
+    <lightning:card>
+        <lightning:button variant="brand" label="+ New Order" title="Brand action" onclick="{! c.newOrderClick }" />
+    </lightning:card>
+    
+    <!-- Customer Order Detail -->
+    <lightning:card>
+        <lightning:datatable data="{! v.orderData }"
+                             columns="{! v.myOrderColumns }"
+                             keyField="Id"
+                             hideCheckboxColumn="true"
+                             onrowaction="{!c.handleOrderAction}" />
+    </lightning:card>
+    
+    <!-- Order Detail -->
+    <lightning:card title="{!'Order Details ' + v.orderId}">
+        
+        <lightning:datatable data="{! v.reOrderData }"
+                             columns="{! v.myreOrderColumns }"
+                             keyField="Id"
+                             hideCheckboxColumn="true" />
+        
+        <lightning:button variant="brand" label="Reorder" title="Brand action" onclick="{! c.reOrderClick }" />
+        
+    </lightning:card>
+</aura:component>

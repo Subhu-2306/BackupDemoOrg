@@ -1,0 +1,24 @@
+<apex:page standardController="Contact" extensions="DetailedTEController">
+<apex:form >
+    <apex:pageBlock title="Table View Of Time Entry">
+         
+         <apex:pageBlock title="TimeSheets">
+            <apex:pageBlockSection title="User Detail">
+                <apex:outputField value="{!contact.UserName__c}"/>
+                <apex:outputField value="{!contact.UserEmail__c}"/>
+            </apex:pageBlockSection>
+           
+         <apex:pageBlockButtons >
+             <apex:commandButton action="{!Save}" value="Edit" />
+             <apex:commandButton action="{!Cancel}" value="Cancel " />
+         </apex:pageBlockButtons>
+         
+        </apex:pageBlock>
+     
+    </apex:pageBlock>
+</apex:form>
+
+<apex:pageBlock >
+<apex:relatedList subject="{!contact}"  list="Time_Entries__r" />
+ </apex:pageBlock>
+</apex:page>
